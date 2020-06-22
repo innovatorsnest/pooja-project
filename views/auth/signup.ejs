@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <style>
+      body {
+        background: #f5f5f5 url("images/manwithcar.png") no-repeat left center;
+        background-size: 500px 600px center;
+      }
+      h1 {
+        padding: 3px;
+      }
+      form {
+        margin-left: 40%;
+        margin-top: 1%;
+      }
+      label {
+        width: 180px;
+        font-size: 20px;
+      }
+      .sub {
+        padding: 10px;
+        width: 120px;
+        font-size: 13px;
+        margin-left: 4%;
+      }
+      .textbox {
+        padding: 2px 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SIGN UP</h1>
+
+    <form action="signup" method="POST" onsubmit="return validate()">
+      <label>Register as:</label>
+      <select name="login" id="selectBox" class="textbox">
+        <option value="admin">Admin</option>
+        <option value="user"> User </option> </select
+      ><br /><br />
+
+      <label>User Name :</label>
+      <input
+        type="text"
+        name="uname"
+        id="uname"
+        class="textbox"
+        placeholder="Enter Username"
+        required
+      /><br /><br />
+      <label>Password :</label>
+      <input
+        type="password"
+        name="pass"
+        id="pass"
+        class="textbox"
+        placeholder="Enter Password"
+        required
+      /><br /><br />
+
+      <label>Father Name :</label>
+      <input
+        type="text"
+        name="fname"
+        class="textbox"
+        placeholder="Enter your Father's name"
+        required
+      /><br /><br />
+
+      <label>Age :</label>
+      <input
+        type="number"
+        name="age"
+        class="textbox"
+        placeholder="Enter your age"
+        required
+      /><br /><br />
+
+      <label>Date of birth :</label>
+      <input type="date" name="dob" class="textbox" required /><br /><br />
+
+      <label>Gender :</label>
+      <input type="radio" name="male" value="male" class="textbox" />Male
+      &nbsp;&nbsp;<input
+        type="radio"
+        name="female"
+        value="Female"
+        class="textbox"
+      />Female<br /><br />
+
+      <label>Contact Number :</label>
+      <input
+        type="tel"
+        name="no"
+        maxlength="10"
+        id="num"
+        placeholder="Enter Phone number"
+        class="textbox"
+        required
+      /><br /><br />
+
+      <label>City :</label>
+      <input
+        type="text"
+        name="city"
+        class="textbox"
+        placeholder="Enter your city"
+        required
+      /><br /><br />
+
+      <label>State :</label>
+      <select name="states" class="textbox">
+        <option value="karnataka">Karnataka</option>
+        <option value="Maharastra">Maharastra</option>
+        <option value="up">UP</option>
+        <option value="punjab">Punjab</option>
+      </select><br /><br />
+
+      <label>Email :</label>
+      <input
+        type="email"
+        name="mail"
+        class="textbox"
+        id="mail"
+        placeholder="abc@gmail.com"
+      /><br /><br />
+
+      <label>Address :</label>
+      <textarea
+        name="Address"
+        rows="5"
+        cols="20"
+        class="textbox"
+        placeholder="Enter Address..."
+        required
+      ></textarea
+      ><br /><br />
+
+      <input type="reset" value="Reset" class="sub" />
+      <input type="submit" value="Signup" class="sub" />
+    </form>
+  </body>
+  <script>
+    function validate() {
+      var username = document.getElementById("uname");
+      var password = document.getElementById("pass");
+      var text = document.getElementById("mail").value;
+      var number = document.getElementById("num").value;
+      var sel = document.getElementById("selectBox");
+      var option = sel.options[sel.selectedIndex].value;
+
+      var regx = /^([a-z 0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/; //email
+      var regx2 = /^[7-9]\d{9}$/; //phone number
+
+      if (!regx.test(text)) {
+        alert("Invalid Gmail");
+        return false;
+      }
+      if (!regx2.test(number)) {
+        alert("Invalid Phone Number");
+        return false;
+      }
+      if (username.value.trim() == "" || password.value.trim() == "") {
+        alert("No blank values allowed");
+        return false;
+      }
+
+      // window.open(option);
+
+      return true;
+    }
+  </script>
+</html>

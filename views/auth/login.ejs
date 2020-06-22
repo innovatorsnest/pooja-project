@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <style>  
+        body{
+            background-image: url('images/carori.jpg');
+            background-size: cover;
+        }
+        h1{
+            padding: 15px 5px;
+        }
+        form{
+            margin-top: 3%;
+        }
+        label{
+            width: 150px;
+            font-size: 23px;
+        }
+        .sub{
+            padding: 10px;
+            width: 110px;
+            font-size: 16px;
+            margin-left: 12%; 
+        }
+        .textbox{
+            padding: 3px 24px;
+            margin: 3px 0;
+        }
+        a:link,a:visited{
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+        </style>
+</head>
+<body>
+    <h1>VEHICLE MANAGEMENT SYSTEM</h1>
+    
+    <form action="/login" name="myform" method="POST" onsubmit="return validate()">
+        <label for="">Login as:</label>
+        <select name="login" id="selectBox" class="textbox">
+            <option value="admin" id="admin">Admin</option>
+            <!-- <option value="/home/index" id="user">User</option> //error -->
+        </select><br><br>
+
+        <label>User Name :</label>
+        <input type="text" name="uname" class="textbox" id="uname" placeholder="Enter Username" required><br><br>
+
+        <label>Password :</label>
+        <input type="password" name="pass" class="textbox" id="pass" placeholder="Enter Password" required><br><br>
+
+        <input type="submit" value="Login" class="sub"><br>
+        <a href="/signup">Create a new account? Sign Up</a>
+
+    </form>
+</body>
+<script>
+    function validate(){
+        var username = document.getElementById('uname');
+        var password = document.getElementById('pass');
+        var res;
+        if(username.value.trim() == "" || password.value.trim()==""){
+            alert("No blank values allowed");
+            res= false;
+        }
+        else
+            res = true;
+         
+        var sel = document.getElementById('selectBox');
+        var option = sel.options[sel.selectedIndex].value;
+    
+
+        return res;
+    }
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+        body{
+            margin-top: 25px;
+            background: #f5f5f5 url('../images/manwithcar.png') no-repeat 30px 50px;
+            background-size: 500px 500px;
+        }
+        h1{
+            padding: 3px;
+        }
+        form{
+            margin-top: 10%;
+        }
+        label{
+            width: 240px;
+            font-size: 20px;
+        }
+        .sub{
+            padding: 15px;
+            width: 120px;
+            font-size: 13px;
+            margin-left: 16%; 
+        }
+        .textbox{
+            padding: 10px 25px;    
+        }
+    </style>
+</head>
+<body>
+    <h1>Change Password</h1>
+
+    <form action="" onsubmit="return validate()">
+        <label>User Name :</label>
+        <input type="text" name="uname" id="uname" class="textbox" placeholder="Enter Username" required><br><br>
+
+        <label>Current Password :</label>
+        <input type="password" name="cpass" id="pass" class="textbox" placeholder="Enter Cuurent Password" required><br><br>
+
+        <label>New Password :</label>
+        <input type="password" name="npass" class="textbox" id="newpass" placeholder="Enter New Password" required><br><br>
+
+        <label>Re-Enter New Password :</label>
+        <input type="password" name="renpass" class="textbox" id="renpass" placeholder="Re-Enter New Password" required><br><br><br>
+
+        <input type="submit" value="Confirm" class="sub">
+    </form>
+</body>
+<script>
+     function validate(){
+        var username = document.getElementById('uname');
+        var password = document.getElementById('pass');
+        var newpassword = document.getElementById('newpass').value;
+        var renewpassword = document.getElementById('renpass').value;
+
+        if(username.value.trim() == "" || password.value.trim()==""){
+            alert("No blank values allowed");
+            return false;
+        }
+
+        if(newpassword != renewpassword){
+            alert("New password and Re-entered password must be same");
+            return false;
+        }
+
+        alert('Password changed sucessfully');
+        return true;
+     }
+</script>
+</html>

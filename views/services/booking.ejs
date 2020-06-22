@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <style>
+        body {
+            background: #f5f5f5 url('../images/manwithcar.png') no-repeat 30px 80px;
+            background-size: 500px 500px;
+        }
+
+        h1 {
+            padding: 3px;
+        }
+
+        form {
+            margin-top: 2%;
+        }
+
+        label {
+            width: 190px;
+            font-size: 20px;
+        }
+
+        .sub{
+            padding: 10px;
+            width: 120px;
+            font-size: 13px;
+            margin-left: 5%; 
+        }
+
+        .textbox {
+            padding: 2px 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BOOKING</h1>
+    <form action="" onsubmit="return validate()">
+        <label>Name :</label>
+        <input type="text" name="uname" class="textbox" placeholder="Enter your name" required><br><br>
+
+        <label>Email :</label>
+        <input type="email" id="mail" name="no" class="textbox" placeholder="abc@gmail.com"><br><br>
+
+        <label>Mobile Number :</label>
+        <input type="digit" name="no" id="num" class="textbox" maxlength="10" placeholder="Enter phone no." required><br><br>
+
+        <label>No. of passengers :</label>
+        <input type="number" name="nop" class="textbox" placeholder="Enter no. of passengers" required><br><br>
+
+        <label>No. of days :</label>
+        <input type="number" name="nod" class="textbox" placeholder="Enter no. of days" required><br><br>
+
+        <label>Vehicle type :</label>
+        <input type="radio" name="car" value="car" class="textbox"> Car
+        &nbsp;&nbsp;<input type="radio" name="minivan" value="car" class="textbox"> Mini van
+        <br><br>
+
+        <label>Date of requirement :</label>
+        <input type="date" name="dor" class="textbox" required><br><br>
+
+        <label>Date of return :</label>
+        <input type="date" name="dorr" class="textbox" required><br><br>
+
+        <label>Destination :</label>
+        <input type="text" name="Destination" class="textbox" placeholder="Enter the Destination" required><br><br>
+
+        <label>Pickup Point :</label>
+        <input type="text" name="Pickup" class="textbox" placeholder="Enter Pickup place" required><br><br>
+
+        <label>Pickup Time :</label>
+        <input type="time" name="Pickuptime" class="textbox" required><br><br>
+
+        <label>Reason for booking :</label>
+        <textarea name="Address" rows="3" cols="20" class="textbox" placeholder="Enter Reason..."></textarea><br><br>
+
+        <input type="reset" value="Reset" class="sub">
+        <input type="submit" value="Confirm" class="sub">
+    </form>
+</body>
+<script>
+    function validate(){
+        var text = document.getElementById('mail').value;
+        var number = document.getElementById('num').value;
+        var regx= /^([a-z 0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+        var regx2 = /^[7-9]\d{9}$/;
+
+        if(!regx.test(text))
+        {
+            alert("Invalid Gmail");
+            return false;
+        }
+        if(!regx2.test(number))
+        {
+            alert("Invalid Phone Number");
+            return false;
+        }
+
+        alert("Booking Confirmed");
+        return true;
+     }
+</script>
+</html>
